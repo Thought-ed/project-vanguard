@@ -3,43 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Capstone Rocketry Mission Control</title>
+    <title>Project Vanguard | Mission Control</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./config.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="./app.js" defer></script>
+    <script src="./src/main.js" type="module"></script>
   </head>
   <body>
     <main>
-      <section id="auth-gate" class="card">
-        <p class="eyebrow">Capstone Rocketry Program</p>
-        <h1>Mission Control Access</h1>
-        <p>Sign in with your Google Workspace account to continue.</p>
-        <div id="google-signin-button" aria-label="Sign in with Google"></div>
-        <p id="auth-error" class="error" role="alert" hidden></p>
+      <section id="auth-gate" class="auth-shell">
+        <div class="auth-card card">
+          <div class="auth-brand">
+            <img src="./logo.png" alt="Project Vanguard logo" class="brand-mark" />
+            <div>
+              <p class="eyebrow">Salto 1</p>
+              <h1>Project Vanguard Access</h1>
+              <p class="auth-subtitle">Capstone rocket workspace for Salto 1.</p>
+            </div>
+          </div>
+
+          <p class="auth-copy">Sign in with your Google Workspace account to enter the dashboard shell and continue the mission planning flow.</p>
+          <div id="google-signin-button" aria-label="Sign in with Google"></div>
+          <p id="auth-error" class="error" role="alert" hidden></p>
+        </div>
       </section>
 
-      <section id="dashboard" class="card" hidden>
-        <header class="dashboard-header">
-          <div>
-            <p class="eyebrow">Mission Dashboard</p>
-            <h2 id="user-welcome">Welcome</h2>
-            <p id="user-role" class="role"></p>
-          </div>
-          <button id="signout" type="button">Sign out</button>
-        </header>
+      <section id="dashboard" class="dashboard-shell" hidden>
+        <div id="sidebar-backdrop" class="sidebar-backdrop" hidden></div>
 
-        <ul class="dashboard-list">
-          <li>Mission Banner</li>
-          <li>Mission Status</li>
-          <li>Launch Readiness Tracker</li>
-          <li>Upcoming Deadlines</li>
-          <li>Active Risks</li>
-          <li>This Week's Sprint</li>
-          <li>Recent Meeting Notes</li>
-          <li>GitHub Link</li>
-          <li>Key Contacts</li>
-        </ul>
+        <aside id="sidebar" class="sidebar">
+          <div class="sidebar-brand">
+            <img src="./logo.png" alt="Project Vanguard logo" class="sidebar-logo" />
+            <div>
+              <p class="eyebrow">Salto 1</p>
+              <h2>Project Vanguard</h2>
+              <p>Capstone rocket workspace</p>
+            </div>
+          </div>
+
+          <nav id="sidebar-nav" class="sidebar-nav" aria-label="Dashboard sections"></nav>
+
+          <div class="sidebar-footer card">
+            <p class="eyebrow">GitHub Repository</p>
+            <a href="https://github.com/Thought-ed/capstone-project" target="_blank" rel="noreferrer">
+              View on GitHub
+            </a>
+            <p>Source, issues, and project history live here.</p>
+          </div>
+        </aside>
+
+        <div class="dashboard-main">
+          <header class="topbar card">
+            <button id="sidebar-toggle" class="icon-button" type="button" aria-controls="sidebar" aria-expanded="false">
+              <span class="icon-bars" aria-hidden="true"></span>
+              <span class="sr-only">Open menu</span>
+            </button>
+
+            <div class="topbar-copy">
+              <p class="eyebrow">Salto 1 Dashboard</p>
+              <h2 id="dashboard-title">Salto 1</h2>
+              <p id="dashboard-summary">Project Vanguard mission control.</p>
+            </div>
+
+            <div class="topbar-actions">
+              <label class="search-shell" aria-label="Search this workspace">
+                <span class="search-icon" aria-hidden="true"></span>
+                <input type="search" placeholder="Search this workspace..." />
+              </label>
+              <div class="user-chip" aria-label="Signed in user">
+                <div class="user-chip-avatar" aria-hidden="true"></div>
+                <div>
+                  <p id="user-welcome">Welcome</p>
+                  <p id="user-role" class="role"></p>
+                </div>
+              </div>
+              <button id="signout" type="button">Sign out</button>
+            </div>
+          </header>
+
+          <section class="hero card">
+            <div class="hero-copy">
+              <p id="section-eyebrow" class="eyebrow">Salto 1 Dashboard</p>
+              <h1 id="section-title">Salto 1</h1>
+              <p id="section-summary">Project Vanguard is a structured command center for planning, testing, and launch readiness.</p>
+
+              <ul id="hero-stats" class="hero-stats" aria-label="Section highlights"></ul>
+            </div>
+
+            <div class="hero-visual">
+              <img id="section-hero-image" src="./logo.png" alt="Project Vanguard logo" />
+            </div>
+          </section>
+
+          <section id="dashboard-grid" class="dashboard-grid" aria-label="Dashboard cards"></section>
+        </div>
       </section>
     </main>
   </body>
