@@ -1,4 +1,5 @@
-import { DASHBOARD_SECTIONS, MISSION_NAME, PROJECT_NAME } from "./dashboard-data.js";
+import { DASHBOARD_SECTIONS, MISSION_NAME, PROJECT_NAME, GITHUB_OWNER, GITHUB_REPO_NAME } from "./dashboard-data.js";
+import { loadGithubRepositoryStats } from "../github/github-api.js";
 
 function escapeHtml(value) {
   return String(value)
@@ -135,6 +136,7 @@ function renderCard(card) {
             )
             .join("")}
         </div>
+        <p class="repository-live-note">Live from the GitHub page when available.</p>
       </article>
     `;
   }
@@ -172,6 +174,34 @@ function renderSidebar(sections, activeSectionId) {
 
 function getSectionById(sectionId) {
   return DASHBOARD_SECTIONS.find((section) => section.id === sectionId) || DASHBOARD_SECTIONS[0];
+}
+
+function formatCount(value) {
+  if (typeof value !== "number" || Number.isNaN(value)) {
+    return "Placeholder";
+  }
+
+  return new Intl.NumberFormat("en-US").format(value);
+}
+
+function buildRepositoryCards(stats) {
+  const section = getSectionById("github");
+
+  return (section.cards || []).map((card) => {
+    if (card.kind !== "repository") {
+      return card;
+    }
+
+    return {
+      ...card,
+      stats: [
+        { label: "Commits", value: formatCount(stats?.commits) },
+        { label: "Branches", value: formatCount(stats?.branches) },
+        { label: "PRs", value: formatCount(stats?.pullRequests) },
+        { label: "Contributors", value: formatCount(stats?.contributors) },
+      ],
+    };
+  });
 }
 
 export function createDashboardController({
@@ -232,6 +262,10 @@ export function createDashboardController({
     heroStats.innerHTML = renderHeroStats(section.stats || []);
     dashboardGrid.innerHTML = (section.cards || []).map(renderCard).join("");
     syncActiveSidebarItem();
+
+    if (section.id === "github") {
+      updateGithubRepositoryStats();
+    }
   }
 
   function renderShell() {
@@ -248,6 +282,35 @@ export function createDashboardController({
         closeSidebar();
       });
     });
+  }
+
+  async function updateGithubRepositoryStats() {
+    const repoCard = dashboardGrid.querySelector(".repository-stats");
+    if (!repoCard) {
+      return;
+    }
+
+    try {
+      const stats = await loadGithubRepositoryStats({
+        owner: GITHUB_OWNER,
+        repo: GITHUB_REPO_NAME,
+      });
+
+      if (state.activeSectionId !== "github") {
+        return;
+      }
+
+      const section = getSectionById("github");
+      const repositoryCard = (buildRepositoryCards(stats).find((card) => card.kind === "repository") || section.cards[0]);
+      const liveCardMarkup = renderCard(repositoryCard);
+      const currentRepositoryCard = dashboardGrid.querySelector(".repository-stats")?.closest(".dashboard-card");
+
+      if (currentRepositoryCard) {
+        currentRepositoryCard.outerHTML = liveCardMarkup;
+      }
+    } catch (error) {
+      console.error("Failed to load GitHub stats:", error);
+    }
   }
 
   function show(session) {

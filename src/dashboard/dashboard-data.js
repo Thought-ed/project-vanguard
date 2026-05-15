@@ -1,6 +1,8 @@
 export const PROJECT_NAME = "Project Vanguard";
 export const MISSION_NAME = "Salto 1";
-export const REPOSITORY_URL = "https://github.com/Thought-ed/capstone-project";
+export const GITHUB_OWNER = "Thought-ed";
+export const GITHUB_REPO_NAME = "project-vanguard";
+export const REPOSITORY_URL = "https://github.com/Thought-ed/project-vanguard";
 
 export const DASHBOARD_SECTIONS = [
   {
@@ -9,21 +11,21 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "MD",
     eyebrow: "Salto 1 Control",
     title: MISSION_NAME,
-    summary: `${PROJECT_NAME} mission control for the capstone rocketry workspace.`,
-    detail: "Organized dashboard shell, modular auth flow, and sectioned mission views.",
+    summary: `${PROJECT_NAME} dashboard for the capstone rocketry workspace.`,
+    detail: "Sections, links, and status cards.",
     heroImage: "./logo.png",
     stats: [
-      { label: "State", value: "Structured" },
-      { label: "Phase", value: "Planning" },
-      { label: "Focus", value: "Refactor" },
+      { label: "State", value: "Init" },
+      { label: "Phase", value: "Before Planning" },
+      { label: "Focus", value: "Plan MC" },
     ],
     cards: [
       {
         kind: "status",
         title: "Current State",
-        value: "Dashboard shell",
-        detail: "Auth gate, sidebar navigation, and mission sections are wired.",
-        progress: 58,
+        value: "Initialization",
+        detail: "Nothing scheduled yet.",
+        progress: 8,
         width: "wide",
       },
       {
@@ -31,9 +33,7 @@ export const DASHBOARD_SECTIONS = [
         title: "Key Contacts",
         width: "third",
         people: [
-          { name: "Dr. Camilo Rivera", role: "Faculty Advisor", email: "crivera@school.edu.co" },
-          { name: "Mario Jose Gomez", role: "Team Lead", email: "mjgomez@school.edu.co" },
-          { name: "Juan Esteban Ruiz", role: "Avionics Lead", email: "jruiz@school.edu.co" },
+          { name: "Pablo Guerrero", role: "Project Lead, Engineer", email: "pablo.guerrero@colegiocanadiense.edu.co" },
         ],
       },
       {
@@ -41,11 +41,11 @@ export const DASHBOARD_SECTIONS = [
         title: "Launch Readiness Tracker",
         width: "half",
         items: [
-          { label: "Flight hardware assembly complete", meta: "done", tone: "good" },
-          { label: "Recovery system test x2", meta: "done", tone: "good" },
-          { label: "Motor received and inspected", meta: "done", tone: "good" },
-          { label: "Avionics functional test", meta: "pending", tone: "neutral" },
-          { label: "Pre-launch safety review", meta: "pending", tone: "neutral" },
+          { label: "Placeholder task", meta: "placeholder", tone: "neutral" },
+          { label: "Placeholder task", meta: "placeholder", tone: "neutral" },
+          { label: "Placeholder task", meta: "placeholder", tone: "neutral" },
+          { label: "Placeholder task", meta: "placeholder", tone: "neutral" },
+          { label: "Placeholder task", meta: "placeholder", tone: "neutral" },
         ],
       },
       {
@@ -53,10 +53,9 @@ export const DASHBOARD_SECTIONS = [
         title: "Upcoming Deadlines",
         width: "half",
         items: [
-          { label: "PDR presentation", meta: "May 30, 2026", tone: "warn" },
-          { label: "Budget report · Phase 2", meta: "June 4, 2026", tone: "info" },
-          { label: "Recovery integration test", meta: "June 8, 2026", tone: "info" },
-          { label: "Launch checklist review", meta: "June 12, 2026", tone: "warn" },
+          { label: "Finish init", meta: "TBD", tone: "neutral" },
+          { label: "Start planning", meta: "TBD", tone: "info" },
+          { label: "Complete planning", meta: "TBD", tone: "info" },
         ],
       },
       {
@@ -64,20 +63,20 @@ export const DASHBOARD_SECTIONS = [
         title: "Active Risks",
         width: "half",
         items: [
-          { label: "Parachute deployment delay", meta: "Critical", tone: "critical" },
-          { label: "Ejection charge inconsistency", meta: "High", tone: "warn" },
-          { label: "Telemetry data loss", meta: "High", tone: "warn" },
-        ],
+          { label: "Launch Site Height Risk", meta: "TBD", tone: "warn" },
+          { label: "Recovery drift and failure", meta: "TBD", tone: "high" },
+          { label: "Alternative launch sites", meta: "TBD", tone: "warn" },
+          ],
       },
       {
         kind: "links",
         title: "Quick Links",
         width: "third",
         links: [
-          { label: "Tasks Kanban Board", href: "#" },
-          { label: "Milestones Timeline", href: "#" },
-          { label: "Risk Register", href: "#" },
-          { label: "Launch Checklist", href: "#" },
+          { label: "Placeholder link", href: "#" },
+          { label: "Placeholder link", href: "#" },
+          { label: "Placeholder link", href: "#" },
+          { label: "Placeholder link", href: "#" },
         ],
       },
     ],
@@ -88,21 +87,21 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "PR",
     eyebrow: "Engineering System",
     title: "Propulsion",
-    summary: "Motor selection, thrust curve tracking, and test readiness.",
-    detail: "Commercial motor planning and propulsion test coordination.",
+    summary: "Propulsion selection.",
+    detail: "No scheduled propulsion work yet.",
     heroImage: "./logo.png",
     stats: [
-      { label: "Motor", value: "Selected" },
-      { label: "Tests", value: "2 queued" },
-      { label: "Risk", value: "Medium" },
+      { label: "Motor", value: "Placeholder" },
+      { label: "Tests", value: "Placeholder" },
+      { label: "Risk", value: "Placeholder" },
     ],
     cards: [
       {
         kind: "status",
         title: "Motor Shortlist",
-        value: "2 options",
-        detail: "Estes and AeroTech class motors under review.",
-        progress: 68,
+        value: "None",
+        detail: "No selections yet.",
+        progress: 8,
         width: "half",
       },
       {
@@ -110,9 +109,7 @@ export const DASHBOARD_SECTIONS = [
         title: "Test Log",
         width: "half",
         items: [
-          { label: "Static thrust comparison", meta: "Scheduled", tone: "info" },
-          { label: "Mass budget validation", meta: "In review", tone: "neutral" },
-          { label: "Motor mount fit check", meta: "Complete", tone: "good" },
+          { label: "None", meta: "TBD", tone: "neutral" },
         ],
       },
       {
@@ -120,8 +117,7 @@ export const DASHBOARD_SECTIONS = [
         title: "Reference Files",
         width: "third",
         links: [
-          { label: "OpenRocket model", href: "#" },
-          { label: "Thrust curve notes", href: "#" },
+          { label: "Placeholder file", href: "#" },
         ],
       },
     ],
@@ -132,13 +128,13 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "AF",
     eyebrow: "Engineering System",
     title: "Airframe",
-    summary: "Structure, stability, and payload accommodation.",
-    detail: "Airframe geometry and CAD review for launch readiness.",
+    summary: "Placeholder airframe section.",
+    detail: "No scheduled airframe work yet.",
     heroImage: "./logo.png",
     stats: [
-      { label: "CAD", value: "Drafted" },
-      { label: "Mass", value: "Tracked" },
-      { label: "Stability", value: "Nominal" },
+      { label: "CAD", value: "nil" },
+      { label: "Mass", value: "nil" },
+      { label: "Stability", value: "nil" },
     ],
     cards: [
       {
@@ -146,17 +142,15 @@ export const DASHBOARD_SECTIONS = [
         title: "Structural Checks",
         width: "half",
         items: [
-          { label: "Fin alignment review", meta: "Pending", tone: "neutral" },
-          { label: "Body tube reinforcement", meta: "Planned", tone: "info" },
-          { label: "Payload bay fit", meta: "Complete", tone: "good" },
+          { label: "None", meta: "TBD", tone: "neutral" },
         ],
       },
       {
         kind: "status",
         title: "CAD Progress",
-        value: "78%",
-        detail: "Model ready for peer review and assembly cross-checks.",
-        progress: 78,
+        value: "0",
+        detail: "No progress tracked yet.",
+        progress: 8,
         width: "half",
       },
       {
@@ -176,21 +170,21 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "RC",
     eyebrow: "Engineering System",
     title: "Recovery",
-    summary: "Parachute deployment, ejection checks, and landing safety.",
-    detail: "Recovery subsystem validation and deployment sequencing.",
+    summary: "Recovery section.",
+    detail: "No scheduled recovery work yet.",
     heroImage: "./logo.png",
     stats: [
-      { label: "Deployment", value: "Testing" },
-      { label: "Canopy", value: "Selected" },
-      { label: "Risk", value: "High" },
+      { label: "Deployment", value: "nil" },
+      { label: "Canopy", value: "nil" },
+      { label: "Risk", value: "Medium" },
     ],
     cards: [
       {
         kind: "status",
         title: "Deployment Confidence",
-        value: "66%",
-        detail: "Ground tests are increasing confidence before flight day.",
-        progress: 66,
+        value: "1",
+        detail: "No tests scheduled yet.",
+        progress: 8,
         width: "wide",
       },
       {
@@ -198,9 +192,7 @@ export const DASHBOARD_SECTIONS = [
         title: "Recovery Checks",
         width: "half",
         items: [
-          { label: "Parachute fold sequence", meta: "Complete", tone: "good" },
-          { label: "Shock cord inspection", meta: "Complete", tone: "good" },
-          { label: "Ejection charge timing", meta: "In test", tone: "warn" },
+          { label: "None", meta: "TBD", tone: "neutral" },
         ],
       },
       {
@@ -220,13 +212,13 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "AV",
     eyebrow: "Engineering System",
     title: "Avionics",
-    summary: "Altimeter, logging, and wiring integrity.",
-    detail: "Flight electronics and recovery trigger system coordination.",
+    summary: "Avionics section.",
+    detail: "No scheduled avionics work yet.",
     heroImage: "./logo.png",
     stats: [
-      { label: "Altimeter", value: "Ready" },
-      { label: "Wiring", value: "Routing" },
-      { label: "Logs", value: "Queued" },
+      { label: "Altimeter", value: "None" },
+      { label: "Wiring", value: "None" },
+      { label: "Logs", value: "None" },
     ],
     cards: [
       {
@@ -234,17 +226,15 @@ export const DASHBOARD_SECTIONS = [
         title: "Hardware Status",
         width: "half",
         items: [
-          { label: "Altimeter bench test", meta: "Complete", tone: "good" },
-          { label: "Battery pack review", meta: "Pending", tone: "neutral" },
-          { label: "Recovery output continuity", meta: "Scheduled", tone: "info" },
+          { label: "None", meta: "TBD", tone: "neutral" },
         ],
       },
       {
         kind: "status",
         title: "Integration Readiness",
-        value: "54%",
-        detail: "Wiring layout is mapped and bench verification is next.",
-        progress: 54,
+        value: "None",
+        detail: "No integration work tracked yet.",
+        progress: 8,
         width: "half",
       },
       {
@@ -264,21 +254,21 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "SIM",
     eyebrow: "Analysis",
     title: "Simulation & Analysis",
-    summary: "OpenRocket and RASAero planning for launch predictions.",
-    detail: "Trajectory models and sensitivity review for flight planning.",
+    summary: "Simulation section.",
+    detail: "No scheduled simulation work yet.",
     heroImage: "./logo.png",
     stats: [
-      { label: "Model", value: "OpenRocket" },
-      { label: "Validation", value: "Ongoing" },
-      { label: "Risk", value: "Medium" },
+      { label: "Model", value: "None" },
+      { label: "Validation", value: "None" },
+      { label: "Risk", value: "None" },
     ],
     cards: [
       {
         kind: "status",
         title: "Simulation Coverage",
-        value: "81%",
-        detail: "Flight and recovery estimates are aligned with hardware assumptions.",
-        progress: 81,
+        value: "0",
+        detail: "No simulation progress tracked yet.",
+        progress: 8,
         width: "half",
       },
       {
@@ -286,9 +276,7 @@ export const DASHBOARD_SECTIONS = [
         title: "Analysis Queue",
         width: "half",
         items: [
-          { label: "Stability margin sweep", meta: "In progress", tone: "info" },
-          { label: "Apogee sensitivity", meta: "Scheduled", tone: "neutral" },
-          { label: "Wind drift estimate", meta: "Pending", tone: "neutral" },
+          { label: "None", meta: "TBD", tone: "neutral" },
         ],
       },
       {
@@ -308,13 +296,13 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "SF",
     eyebrow: "Compliance",
     title: "Safety & Compliance",
-    summary: "Launch field, regulations, and procedural readiness.",
-    detail: "Checklist-driven planning for field permissions and safety steps.",
+    summary: "Safety section.",
+    detail: "No scheduled safety work yet.",
     heroImage: "./logo.png",
     stats: [
-      { label: "Checklist", value: "Active" },
-      { label: "Field", value: "Pending" },
-      { label: "Risk", value: "Critical" },
+      { label: "Checklist", value: "None" },
+      { label: "Field", value: "None" },
+      { label: "Risk", value: "None" },
     ],
     cards: [
       {
@@ -322,10 +310,7 @@ export const DASHBOARD_SECTIONS = [
         title: "Safety Review",
         width: "wide",
         items: [
-          { label: "Launch permissions", meta: "Pending", tone: "warn" },
-          { label: "Field inspection", meta: "Pending", tone: "warn" },
-          { label: "Fire suppression gear", meta: "Checked", tone: "good" },
-          { label: "Weather monitoring", meta: "Required", tone: "info" },
+          { label: "None", meta: "TBD", tone: "neutral" },
         ],
       },
       {
@@ -345,13 +330,13 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "PM",
     eyebrow: "Operations",
     title: "Project Management",
-    summary: "Tasks, milestones, meeting notes, and sprint planning.",
-    detail: "Team coordination and deliverable tracking in one place.",
+    summary: "Management section.",
+    detail: "No team schedule or deliverables are planned yet.",
     heroImage: "./logo.png",
     stats: [
-      { label: "Tasks", value: "24 open" },
-      { label: "Milestones", value: "5 active" },
-      { label: "Meetings", value: "Weekly" },
+      { label: "Investment", value: "Plausible" },
+      { label: "Group Members", value: "Standby" },
+      { label: "Meetings", value: "None" },
     ],
     cards: [
       {
@@ -359,9 +344,7 @@ export const DASHBOARD_SECTIONS = [
         title: "Sprint Board",
         width: "half",
         items: [
-          { label: "CAD cleanup", meta: "In progress", tone: "info" },
-          { label: "Budget update", meta: "Pending", tone: "neutral" },
-          { label: "Review notes", meta: "Scheduled", tone: "neutral" },
+          { label: "None", meta: "TBD", tone: "neutral" },
         ],
       },
       {
@@ -369,9 +352,9 @@ export const DASHBOARD_SECTIONS = [
         title: "Recent Meeting Notes",
         width: "half",
         items: [
-          { label: "Weekly sync · May 9", meta: "Follow-ups assigned", tone: "good" },
-          { label: "Design review · May 2", meta: "Actions captured", tone: "good" },
-          { label: "Safety review · Apr 25", meta: "Compliance updated", tone: "good" },
+          { label: "None", meta: "TBD", tone: "neutral" },
+          { label: "None", meta: "TBD", tone: "neutral" },
+          { label: "None", meta: "TBD", tone: "neutral" },
         ],
       },
       {
@@ -392,13 +375,13 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "DL",
     eyebrow: "Deliverables",
     title: "Academic & Deliverables",
-    summary: "Report drafts, presentation assets, and grading evidence.",
-    detail: "Everything needed for the final booth, report, and evidence trail.",
+    summary: "Deliverables section.",
+    detail: "No deliverables are planned yet.",
     heroImage: "./logo.png",
     stats: [
-      { label: "Report", value: "Drafting" },
-      { label: "Presentation", value: "Queued" },
-      { label: "Evidence", value: "Collecting" },
+      { label: "Report", value: "Placeholder" },
+      { label: "Presentation", value: "Placeholder" },
+      { label: "Evidence", value: "Placeholder" },
     ],
     cards: [
       {
@@ -406,9 +389,9 @@ export const DASHBOARD_SECTIONS = [
         title: "Deliverable Checklist",
         width: "half",
         items: [
-          { label: "Technical report", meta: "Draft", tone: "info" },
-          { label: "Presentation deck", meta: "Planned", tone: "neutral" },
-          { label: "Physical evidence set", meta: "Collecting", tone: "warn" },
+          { label: "Placeholder deliverable", meta: "TBD", tone: "neutral" },
+          { label: "Placeholder deliverable", meta: "TBD", tone: "neutral" },
+          { label: "Placeholder deliverable", meta: "TBD", tone: "neutral" },
         ],
       },
       {
@@ -429,26 +412,26 @@ export const DASHBOARD_SECTIONS = [
     shortLabel: "GH",
     eyebrow: "Version Control",
     title: "GitHub Repository",
-    summary: `${PROJECT_NAME} source, history, and collaboration live here.`,
-    detail: `The branch, issues, and pull request workflow for ${PROJECT_NAME}.`,
+    summary: `${PROJECT_NAME} repository section.`,
+    detail: `No repository workflow is scheduled yet for ${PROJECT_NAME}.`,
     heroImage: "./logo.png",
     stats: [
-      { label: "Commits", value: "128" },
-      { label: "Branches", value: "7" },
-      { label: "Pull Requests", value: "12" },
+      { label: "Commits", value: "Placeholder" },
+      { label: "Branches", value: "Placeholder" },
+      { label: "Pull Requests", value: "Placeholder" },
     ],
     cards: [
       {
         kind: "repository",
         title: "Repository Summary",
         width: "wide",
-        repoName: "thought-ed/capstone-project",
+        repoName: "thought-ed/project-vanguard",
         repoDescription: "Simulation files, docs, CAD, and code for Project Vanguard.",
         stats: [
-          { label: "Commits", value: "128" },
-          { label: "Branches", value: "7" },
-          { label: "PRs", value: "12" },
-          { label: "Contributors", value: "4" },
+          { label: "Commits", value: "Placeholder" },
+          { label: "Branches", value: "Placeholder" },
+          { label: "PRs", value: "3" },
+          { label: "Contributors", value: "1" },
         ],
       },
       {

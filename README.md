@@ -33,6 +33,8 @@ This repository contains the organized frontend shell for the rocketry workspace
 
 - The UI leads with Salto 1 and uses Project Vanguard as the project name.
 - The logo asset is wired in from `logo.png`.
-- The dashboard is still a static shell; backend APIs can be added later for live project data.
+- The dashboard content is intentionally placeholder-only for now.
+- The GitHub repository card loads commits, branches, PRs, and contributors live when the API is available.
+- Backend APIs can be added later for live project data.
 
 
