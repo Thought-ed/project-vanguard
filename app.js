@@ -1,6 +1,6 @@
 const CONFIG = {
   // Replace before deployment.
-  googleClientId: "REPLACE_WITH_GOOGLE_CLIENT_ID.apps.googleusercontent.com",
+  googleClientId: "YOUR_GOOGLE_CLIENT_ID_HERE",
   allowedDomain: "school.edu.co",
   editorAllowlist: ["advisor@school.edu.co", "lead.student@school.edu.co"],
   authorizationEndpoint: "",
@@ -13,11 +13,9 @@ const welcome = document.getElementById("user-welcome");
 const role = document.getElementById("user-role");
 const signOutButton = document.getElementById("signout");
 
-const SESSION_KEY = "mission-control-session";
-
 function decodeJwt(token) {
   if (typeof token !== "string") {
-    throw new Error("Missing JWT token");
+    throw new Error("Invalid JWT token type");
   }
 
   const parts = token.split(".");
@@ -78,24 +76,6 @@ async function resolveRole(profile, idToken) {
   }
 }
 
-function saveSession(session) {
-  sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
-}
-
-function readSession() {
-  const saved = sessionStorage.getItem(SESSION_KEY);
-  if (!saved) {
-    return null;
-  }
-
-  try {
-    return JSON.parse(saved);
-  } catch {
-    sessionStorage.removeItem(SESSION_KEY);
-    return null;
-  }
-}
-
 function renderAuthenticatedView(session) {
   authGate.hidden = true;
   dashboard.hidden = false;
@@ -106,7 +86,6 @@ function renderAuthenticatedView(session) {
 }
 
 function renderSignedOutView() {
-  sessionStorage.removeItem(SESSION_KEY);
   authGate.hidden = false;
   dashboard.hidden = true;
 }
@@ -129,7 +108,6 @@ async function handleCredentialResponse(response) {
       role: resolvedRole,
     };
 
-    saveSession(session);
     renderAuthenticatedView(session);
   } catch (error) {
     console.error("Sign-in handling error:", error);
@@ -158,11 +136,6 @@ function bootstrapGoogleSignIn() {
 }
 
 window.addEventListener("load", () => {
-  const savedSession = readSession();
-  if (savedSession) {
-    renderAuthenticatedView(savedSession);
-  }
-
   bootstrapGoogleSignIn();
 });
 
