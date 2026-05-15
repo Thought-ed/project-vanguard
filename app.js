@@ -15,7 +15,16 @@ const signOutButton = document.getElementById("signout");
 const SESSION_KEY = "mission-control-session";
 
 function decodeJwt(token) {
-  const base64 = token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+  if (typeof token !== "string") {
+    throw new Error("Missing JWT token");
+  }
+
+  const parts = token.split(".");
+  if (parts.length !== 3 || !parts[1]) {
+    throw new Error("Malformed JWT token");
+  }
+
+  const base64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
   return JSON.parse(atob(base64));
 }
 
@@ -89,14 +98,12 @@ function renderAuthenticatedView(session) {
 
   welcome.textContent = `Welcome, ${session.name || session.email}`;
   role.textContent = `${session.role} access`;
-  window.location.hash = "dashboard";
 }
 
 function renderSignedOutView() {
   sessionStorage.removeItem(SESSION_KEY);
   authGate.hidden = false;
   dashboard.hidden = true;
-  window.location.hash = "";
 }
 
 async function handleCredentialResponse(response) {

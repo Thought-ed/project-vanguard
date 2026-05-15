@@ -9,7 +9,7 @@ This repository now includes an initial GitHub Pages frontend shell aligned with
 
 ## Quick setup
 
-1. Open `/home/runner/work/capstone-project/capstone-project/app.js`.
+1. Open `app.js`.
 2. Update `CONFIG.googleClientId` with your Google OAuth client ID.
 3. Keep `CONFIG.allowedDomain` as your school domain (for example `school.edu.co`).
 4. Update `CONFIG.editorAllowlist` with the emails that should have edit access.
