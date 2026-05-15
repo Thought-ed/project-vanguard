@@ -1,0 +1,1 @@
+window.APP_CONFIG = { googleClientId: "104232788801-a36m0uoli69ism5pprragp1ldb2g25li.apps.googleusercontent.com" };

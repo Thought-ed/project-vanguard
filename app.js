@@ -1,8 +1,8 @@
 const CONFIG = {
   // Replace before deployment.
-  googleClientId: "YOUR_GOOGLE_CLIENT_ID_HERE",
-  allowedDomain: "school.edu.co",
-  editorAllowlist: ["advisor@school.edu.co", "lead.student@school.edu.co"],
+  googleClientId: window.APP_CONFIG?.googleClientId || window.GOOGLE_CLIENT_ID || "YOUR_GOOGLE_CLIENT_ID_HERE",
+  allowedDomain: "colegiocanadiense.edu.co",
+  editorAllowlist: ["pguerrerocuello@gmail.com", "pablo.guerrero@colegiocanadiense.edu.co"],
   authorizationEndpoint: "",
 };
 
