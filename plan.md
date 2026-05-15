@@ -50,6 +50,17 @@ Google Workspace is a good fit if the school controls the domain, because you ca
 
 ## Implementation Plan
 
+### Step 0: Delegate Execution to Cloud Agent
+
+To start implementation, delegate this plan to the cloud coding agent and execute in this order:
+
+1. Scaffold a private-first GitHub Pages frontend with a Google sign-in gate.
+2. Implement backend authorization for:
+   - viewer role: any authenticated `@school.edu.co` account
+   - editor/admin role: explicit email allowlist
+3. Store protected data behind authenticated API routes (no direct static exposure).
+4. Deliver a minimal vertical slice first (login → dashboard read access → editor-only write path), then iterate by section.
+
 ### Step 1: Create the Mission Dashboard (Home Page)
 
 The top-level page acts as the **Mission Control** home. It is read-only for visitors and the daily start point for the team.
