@@ -9,7 +9,7 @@ export const DASHBOARD_SECTIONS = [
     id: "overview",
     navLabel: "Mission Dashboard",
     shortLabel: "MD",
-    eyebrow: "Salto 1 Control",
+    eyebrow: "Vanguard Control",
     title: MISSION_NAME,
     summary: `${PROJECT_NAME} dashboard for the capstone rocketry workspace.`,
     detail: "Sections, links, and status cards.",
