@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capstone Rocketry Mission Control</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section id="auth-gate" class="card">
+        <p class="eyebrow">Capstone Rocketry Program</p>
+        <h1>Mission Control Access</h1>
+        <p>Sign in with your Google Workspace account to continue.</p>
+        <div id="google-signin-button" aria-label="Sign in with Google"></div>
+        <p id="auth-error" class="error" role="alert" hidden></p>
+      </section>
+
+      <section id="dashboard" class="card" hidden>
+        <header class="dashboard-header">
+          <div>
+            <p class="eyebrow">Mission Dashboard</p>
+            <h2 id="user-welcome">Welcome</h2>
+            <p id="user-role" class="role"></p>
+          </div>
+          <button id="signout" type="button">Sign out</button>
+        </header>
+
+        <ul class="dashboard-list">
+          <li>Mission Banner</li>
+          <li>Mission Status</li>
+          <li>Launch Readiness Tracker</li>
+          <li>Upcoming Deadlines</li>
+          <li>Active Risks</li>
+          <li>This Week's Sprint</li>
+          <li>Recent Meeting Notes</li>
+          <li>GitHub Link</li>
+          <li>Key Contacts</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
