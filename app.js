@@ -1,4 +1,5 @@
 const CONFIG = {
+  // Replace before deployment.
   googleClientId: "REPLACE_WITH_GOOGLE_CLIENT_ID.apps.googleusercontent.com",
   allowedDomain: "school.edu.co",
   editorAllowlist: ["advisor@school.edu.co", "lead.student@school.edu.co"],
@@ -25,6 +26,8 @@ function decodeJwt(token) {
   }
 
   const base64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
+  // This decodes claims for client-side UI gating only.
+  // Backend services must verify token signature and claims server-side.
   return JSON.parse(atob(base64));
 }
 
@@ -59,18 +62,20 @@ async function resolveRole(profile, idToken) {
     return "Viewer";
   }
 
-  const response = await fetch(CONFIG.authorizationEndpoint, {
-    headers: {
-      Authorization: `Bearer ${idToken}`,
-    },
-  });
+  try {
+    const response = await fetch(CONFIG.authorizationEndpoint, {
+      headers: { Authorization: `Bearer ${idToken}` },
+    });
 
-  if (!response.ok) {
+    if (!response.ok) {
+      return "Viewer";
+    }
+
+    const result = await response.json();
+    return result.canEdit ? "Editor" : "Viewer";
+  } catch {
     return "Viewer";
   }
-
-  const result = await response.json();
-  return result.canEdit ? "Editor" : "Viewer";
 }
 
 function saveSession(session) {
@@ -126,7 +131,8 @@ async function handleCredentialResponse(response) {
 
     saveSession(session);
     renderAuthenticatedView(session);
-  } catch {
+  } catch (error) {
+    console.error("Sign-in handling error:", error);
     setError("Sign-in failed. Please try again.");
   }
 }
